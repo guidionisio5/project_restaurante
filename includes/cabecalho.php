@@ -21,7 +21,7 @@
             <div class="global-page-container">
 
                 <div class="logo small-6 small-offset-3 large-3 large-offset-0 columns no-padding">
-                    <a href="index.html" title="home">
+                    <a href="index.php" title="home">
                         <div class="table">
                             <div class="table-cell">
                                 <h1>Restô Bar</h1>
