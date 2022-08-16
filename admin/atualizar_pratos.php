@@ -19,4 +19,4 @@ $conexao->query($sql);
 
 $conexao->close();
 
-header('location: listar-pratos.php');
+header('location: listar_pratos.php');

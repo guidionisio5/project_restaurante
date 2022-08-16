@@ -33,6 +33,7 @@ include_once('includes/conexao.php');
                         categoria = '$categoria'";
 
                         $result2 = $conexao->query($sql2);
+                        
                         if ($result->num_rows > 0){
                             while ($row2 = $result2->fetch_assoc()){
                     ?>
