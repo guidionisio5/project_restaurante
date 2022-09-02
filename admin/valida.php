@@ -8,14 +8,9 @@
          
         $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-
-
-
         $result_usuario = "SELECT * FROM tb_usuarios WHERE email = '$usuario' && senha = '$senha' LIMIT 1";
         $result_usuario = mysqli_query($conexao, $result_usuario);
         $resultado = mysqli_fetch_assoc($result_usuario);
-
-
 
         if(isset($resultado)){
             $_SESSION['usuarioId'] = $resultado['id'];
@@ -29,17 +24,12 @@
             }else{
                 header("Location: cliente.php");
             }
-
-
-
         }else{
-            
-            $_SESSION['loginErro'] = "Usuário ou senha inválido";
+            $_SESSION['loginErro'] = "Usuário ou senha inválido!";
             header("Location: index.php");
         }
-
     }else{
-            $_SESSION['loginErro'] = "Usuário ou senha inválido";
+            $_SESSION['loginErro'] = "Usuário ou senha inválido!";
             header("Location: index.php");
     }
 ?>

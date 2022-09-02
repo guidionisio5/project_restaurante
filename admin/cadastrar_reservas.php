@@ -1,6 +1,8 @@
 <?php
-
+session_start();
 include_once('../includes/conexao.php');
+
+if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['mensagem']) && isset($_POST['telefone']) && isset($_POST['data']) && isset($_POST['pessoas']) && isset($_SESSION['usuarioNome'])){
 
 $nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
@@ -16,3 +18,8 @@ $conexao->query($sql);
 $conexao->close();
 
 header('location: ../index.php');  
+}else{
+    $_SESSION['loginPermissao'] = 'Você não tem permissão para acessar!';
+
+    header('location: listar_reservas.php');
+}

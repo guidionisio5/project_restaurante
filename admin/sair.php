@@ -9,7 +9,7 @@
         $_SESSION['usuarioSenha']
     );
 
-    $_SESSION['logindeslogado'] = "Deslogado com sucesso";
+    $_SESSION['logindeslogado'] = "Deslogado com sucesso!";
 
     header("Location: index.php");
 ?>

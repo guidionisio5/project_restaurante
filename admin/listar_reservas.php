@@ -1,9 +1,23 @@
 <?php
 
-include_once ('../includes/conexao.php')
+include_once ('../includes/conexao.php');
+session_start();
+echo "Usuario: ". $_SESSION['usuarioNome'];
 
+if($_SESSION['usuarioNome'] == ""){
+
+    header('location: index.php');
+
+    $_SESSION['loginErro'] = "Você não efetou o login!";
+}
 ?>
-
+<p class="text-center text-danger">
+  <?php if(isset($_SESSION['loginPermissao'])){
+      echo $_SESSION['loginPermissao'];
+      unset($_SESSION['loginPermissao']);
+    }
+  ?>
+</p>
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <div class="container">
     <div class="row centered-form">

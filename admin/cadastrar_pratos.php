@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 include('../includes/conexao.php');
 
+if(isset($_FILES['imagem']) && isset($_POST['nome']) && isset($_POST['codigo']) && isset($_POST['categoria']) && isset($_POST['preco']) && isset($_POST['descricao']) && isset($_POST['calorias']) && isset($_POST['destaque']) && isset($_SESSION['usuarioNome'])){
 $imagem = $_FILES['imagem'];
 $nome = $_POST['nome'];
 $codigo = $_POST['codigo'];
@@ -29,7 +30,8 @@ $conexao->query($sql);
 $conexao->close();
 
 header('location: listar_pratos.php');  
+}else{
+    $_SESSION['loginPermissao'] = 'Você não tem permissão para acessar!';
 
-
-
-
+    header('location: cadastro_pratos.php');
+}

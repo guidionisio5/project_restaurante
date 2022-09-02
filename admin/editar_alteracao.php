@@ -1,4 +1,13 @@
 <?php
+session_start();
+echo "Usuario: ". $_SESSION['usuarioNome'];
+
+if($_SESSION['usuarioNome'] == ""){
+
+    header('location: index.php');
+
+    $_SESSION['loginErro'] = "Você não efetou o login!";
+}
 include_once('../includes/conexao.php');
 ?>
 <html> 
@@ -28,6 +37,13 @@ include_once('../includes/conexao.php');
 
     </head>
     <body>
+        <p class="text-center text-danger">
+            <?php if(isset($_SESSION['loginPermissao'])){
+            echo $_SESSION['loginPermissao'];
+            unset($_SESSION['loginPermissao']);
+            }
+            ?>
+	    </p>
         <main class="container">
             <h1>Formulário de Alteração</h1>
             <p>Acrescente um email válido para receber o email teste!</p>

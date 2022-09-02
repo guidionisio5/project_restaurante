@@ -34,10 +34,30 @@
         <button class="btn btn-lg btn-danger btn-block" type="submit">Acessar</button>
       </form>
 	  <p class="text-center text-danger">
-		
+      <?php if(isset($_SESSION['loginErro'])){
+        echo $_SESSION['loginErro'];
+        unset($_SESSION['loginErro']);
+      }
+      ?>
 		</p>
 		<p class="text-center text-success">
-			
+      <?php if(isset($_SESSION['logindeslogado'])){
+        echo $_SESSION['logindeslogado'];
+        unset($_SESSION['logindeslogado']);
+      }
+
+      ?>
+
+		</p>
+
+    <p class="text-center text-danger">
+      <?php if(isset($_SESSION['loginPermissao'])){
+        echo $_SESSION['loginPermissao'];
+        unset($_SESSION['loginPermissao']);
+      }
+
+      ?>
+
 		</p>
     </div> <!-- /container -->
 

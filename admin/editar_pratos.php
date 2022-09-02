@@ -1,5 +1,15 @@
 <?php
 include('../includes/conexao.php');
+
+session_start();
+echo "Usuario: ". $_SESSION['usuarioNome'];
+
+if($_SESSION['usuarioNome'] == ""){
+
+    header('location: index.php');
+
+    $_SESSION['loginErro'] = "Você não efetou o login!";
+}
 ?>
 
 <html>
@@ -31,6 +41,13 @@ include('../includes/conexao.php');
 
     </head>
     <body>
+        <p class="text-center text-danger">
+            <?php if(isset($_SESSION['loginPermissao'])){
+            echo $_SESSION['loginPermissao'];
+            unset($_SESSION['loginPermissao']);
+            }
+            ?>
+	    </p>
         <?php
         $id = $_GET['idprato'];
         $sql = "SELECT * FROM tb_pratos WHERE id = $id";
